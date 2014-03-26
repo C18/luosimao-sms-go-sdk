@@ -75,10 +75,10 @@ func (this *Luosimao) Send(mobile, content string) error {
 func (this *Luosimao) Status() (int, error) {
 	client := &http.Client{}
 	req, err := http.NewRequest("GET", "https://sms-api.luosimao.com/v1/status.json", nil)
-	req.SetBasicAuth(AuthUsername, this.ApiKey)
 	if err != nil {
 		return 0, err
 	}
+	req.SetBasicAuth(AuthUsername, this.ApiKey)
 	resp, err := client.Do(req)
 	if err != nil {
 		return 0, err
